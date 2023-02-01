@@ -8,6 +8,7 @@ public class Main {
 
         int x=6;
         int pos=4;
+        boolean l=false;
 
         System.out.println("Apartado 1 Generar array aleatorio: ");
         int [] a = randomArr(10);
@@ -30,18 +31,25 @@ public class Main {
         comparaArrays(a);
 
         System.out.println("Con clone: ");
-        System.out.println(usandoClone(a));
+        System.out.println(Arrays.toString(usandoClone(a)));
         System.out.println("Con Arrays.copyOf: ");
-        System.out.println(usandoCopyOf(a));
+        System.out.println(Arrays.toString(usandoCopyOf(a)));
         System.out.println("Con Arrays.copyOfRange: ");
-        System.out.println(usandoCopyRange(a));
+        System.out.println(Arrays.toString(usandoCopyRange(a)));
         System.out.println("Con System.arraycopy: ");
-        System.out.println(usandoSystemCopy(a));
+        System.out.println(Arrays.toString(usandoSystemCopy(a)));
 
         //Actividad 5
 
         System.out.println("Insertar elemento: " + Arrays.toString(insertarArray(a,x,pos))+"\n");
         System.out.println("Insertar array: " + Arrays.toString(insertarArray(a,b,pos))+"\n");
+
+
+        System.out.println("Elimina elemento: " + Arrays.toString(eliminaArray(a,x,l)));
+
+
+        cambioParesImpares(a);
+        System.out.println("Cambio Pares por Impares: " + Arrays.toString(a));
 
 
 
@@ -191,6 +199,19 @@ public class Main {
             }
         }
         return array;
+    }
+
+    //Apartado 3
+
+    static void cambioParesImpares(int[] array){
+          for(int i =0;i<array.length;i ++){
+              if(i%2==0 && i+1<array.length){
+                  int intercambiar = array[i];
+                  array[i]=array[i+1];
+                  array[i+1]=intercambiar;
+              }
+          }
+
     }
 
 
